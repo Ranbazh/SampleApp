@@ -1,0 +1,7 @@
+---
+    spec_version: '1.0'
+    indicators:
+      rpm_TA : sampler_count{job="prometheus",label="Transaction_Home"}
+      rt_p95_TA: sampler_sum{job="prometheus", label="Transaction_Home", quantile="0.95"}
+      rt_p99_TA: sampler_sum{job="prometheus", label="Transaction_Home", quantile="0.99"}
+      fr_TA: 100- (sampler_success{job="prometheus",label="Transaction_Home"} * 100 / sampler_count{job="prometheus",label="Transaction_Home"})
